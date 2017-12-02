@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "license": "Unlicense",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "get-caller-file": "^1.0.2"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.60.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.8.2"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "flow"
+    ]
+  },
+  "lint-staged": {
+    "*.js": ["prettier --write --parser flow", "git add"],
+    "*.json": ["prettier --write", "git add"]
+  },
+  "prettier": {
+    "trailingComma": "all"
+  }
+}
